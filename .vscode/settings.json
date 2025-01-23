@@ -13,6 +13,6 @@
       "**/CVS": true
    },
    "files.autoSave": "off",
-   "workbench.colorTheme": "Dracula At Night",
+   "workbench.colorTheme": "Dracula Midnight",
    "terminal.integrated.gpuAcceleration": "canvas",
 }
