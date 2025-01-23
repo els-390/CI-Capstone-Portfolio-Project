@@ -46,7 +46,7 @@ def add_review(request):
     return render(request, 'reviews/add_review.html', {'form': form})
 
 
-# Restricting access to the update view to the author or admin
+# Restricting access to the update view to the author
 @method_decorator(login_required, name='dispatch')
 class ReviewUpdateView(UpdateView):
     model = Review
@@ -56,8 +56,8 @@ class ReviewUpdateView(UpdateView):
 
     def dispatch(self, request, *args, **kwargs):
         review = self.get_object()
-        # Allow access if the user is the author or has admin privileges
-        if review.author != request.user and not request.user.is_staff:
+        # Ensure the logged-in user is the author
+        if review.author != request.user:
             return HttpResponseForbidden("You are not allowed to edit this review.")
         return super().dispatch(request, *args, **kwargs)
 
@@ -77,8 +77,8 @@ def edit_review(request, review_id):
     """
     review = get_object_or_404(Review, pk=review_id)
 
-    # Restrict access to the review's author or an admin
-    if review.author != request.user and not request.user.is_staff:
+    # Restrict access to the review's author
+    if review.author != request.user:
         return HttpResponseForbidden("You are not allowed to edit this review.")
 
     if request.method == "POST":
@@ -99,7 +99,7 @@ def edit_review(request, review_id):
     return render(request, 'reviews/edit_review.html', {'form': review_form, 'review': review})
 
 
-# Restricting access to the delete view to the author or admin
+# Restricting access to the delete view to the author
 @method_decorator(login_required, name='dispatch')
 class ReviewDeleteView(SuccessMessageMixin, DeleteView):
     model = Review
@@ -109,8 +109,8 @@ class ReviewDeleteView(SuccessMessageMixin, DeleteView):
 
     def dispatch(self, request, *args, **kwargs):
         review = self.get_object()
-        # Ensure the logged-in user is the author or admin
-        if review.author != request.user and not request.user.is_staff:
+        # Ensure the logged-in user is the author
+        if review.author != request.user:
             return HttpResponseForbidden("You are not allowed to delete this review.")
         return super().dispatch(request, *args, **kwargs)
 
