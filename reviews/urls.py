@@ -15,4 +15,3 @@ urlpatterns = [
     path('reviews/<int:review_id>/edit/', edit_review, name='edit_review'),
     path('<int:pk>/delete/', ReviewDeleteView.as_view(), name='review_delete'),
 ]
-
