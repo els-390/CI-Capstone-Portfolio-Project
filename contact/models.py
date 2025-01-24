@@ -3,6 +3,7 @@ from about.models import ContactRequest
 
 # Create your models here.
 
+
 class ContactRequest(models.Model):
     """
     Stores a single contact request message

@@ -8,7 +8,7 @@ from .forms import ContactForm
 
 def about_me(request):
     """
-    Renders the About page
+    Renders the About page.
     """
     about = About.objects.all().order_by('-updated_on').first()
     if request.method == "POST":
@@ -18,10 +18,12 @@ def about_me(request):
             contact_request.read = False
             contact_request.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                'Your message has been sent successfully! I endeavor to respond within 2 working days.'
+                request,
+                messages.SUCCESS,
+                'Your message has been sent successfully!'
+                'I endeavor to respond within 2 working days.'
             )
-            contact_form =  ContactForm()
+            contact_form = ContactForm()
         else:
             contact_form = ContactForm()
     else:
@@ -30,6 +32,8 @@ def about_me(request):
     return render(
         request,
         "about/about.html",
-        {"about": about,
-        "contact_form": contact_form},
+        {
+            "about": about,
+            "contact_form": contact_form,
+        },
     )

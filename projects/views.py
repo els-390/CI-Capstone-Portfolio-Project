@@ -11,14 +11,14 @@ from .forms import CommentForm
 class ProjectList(generic.ListView):
     """
     Returns all published projects in :model:`projects.Project`
-    and displays them in a page of six posts. 
+    and displays them in a page of six posts.
     **Context**
 
     ``queryset``
         All published instances of :model:`projects.Project`
     ``paginate_by``
         Number of projects per page.
-        
+
     **Template:**
 
     :template `projects/index.html`
@@ -43,8 +43,11 @@ def project_detail(request, slug):
     """
     queryset = Project.objects.filter(status=1)
     project = get_object_or_404(queryset, slug=slug)
-    next_project = Project.objects.filter(created_on__gt=project.created_on).last()
-    previous_project = Project.objects.filter(created_on__lt=project.created_on).first()
+    next_project = Project.objects.filter(
+        created_on__gt=project.created_on).last()
+    previous_project = Project.objects.filter(
+        created_on__lt=project.created_on).first(
+            )
     comments = project.comments.all().order_by("-created_on")
     comment_count = project.comments.filter(approved=True).count()
     if request.method == "POST":
@@ -52,14 +55,13 @@ def project_detail(request, slug):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.project= project
+            comment.project = project
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
-        
-    
+
     comment_form = CommentForm()
 
     return render(
@@ -67,7 +69,7 @@ def project_detail(request, slug):
         "projects/project_detail.html",
         {
             "project": project,
-            "technologies": project.technologies.split(','),  # Split if comma-separated
+            "technologies": project.technologies.split(','),
             "next_project": previous_project,
             "previous_project": next_project,
             "comments": comments,
@@ -104,8 +106,8 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR,
-                                 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('project_detail', args=[slug]))
 
@@ -129,7 +131,7 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('project_detail', args=[slug]))

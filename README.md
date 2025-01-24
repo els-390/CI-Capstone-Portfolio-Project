@@ -219,7 +219,7 @@ The navigation bar is fully responsive and provides links for the Home, About, R
 
 The Footer has links to the various relevant professional and social media pages for the site owner.
 
-**Reigster**
+**Register**
 
 The site has a facility to sign up as a user in order this enables them to create, edit or delete their own reviews or comments on project posts.
 
@@ -317,7 +317,7 @@ Alongside other tests, Chrome dev tools were used frequently to test the site wa
 
 - HTML
 
-Some small errors were identified with syntax when passing through the official W3C validator for the homepage. This was corrected.
+Using the W3 HTML Validator too  to check the HTML conforms to the industry standards including checking the below templates and pages by pasting the HTML into the Direct Input tab. tab. Some small errors were identified with syntax when passing through the official W3C validator for the homepage and these were identified and corrected.
 
 Some other errors were identified and appear to be related to Django HTML that can't be editted as I didn't write the code and can't identify it in my project files.
 
@@ -340,7 +340,7 @@ Some other errors were identified and appear to be related to Django HTML that c
 
 - CSS
 
-No errors were found with our own CSS code when passing through the official Jigsaw validator.
+Using the CSS Validator tool, I pasted the CSS file in and no errors were found with the CSS code when passing through the official Jigsaw validator.
 
 <br>
 
@@ -350,7 +350,8 @@ No errors were found with our own CSS code when passing through the official Jig
 
 - Javascript
 
-All Javascript code was tested for errors with JSHint.
+All Javascript code was tested for errors with JSHint with each file pasted into the website to check it.
+
 
 <img src=static/images/readme/validation/comments_js.png alt="JS Hint for comments.js">
 
@@ -360,7 +361,7 @@ All Javascript code was tested for errors with JSHint.
 
 ## Bugs
 
-No bugs have been detect so far that haven't been fixed. 
+No bugs have been detected so far that haven't been fixed. 
 
 There were some issues with comments and reviews displaying when not approved and this has now been resolved.
 

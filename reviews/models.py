@@ -1,12 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Review(models.Model):
     """
     Stores a single review entry related to :model:`auth.User`
     and :model:`projects.Project`.
     """
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="reviewer"
+        )
     reviewer_name = models.CharField(max_length=100)
     review_title = models.CharField(max_length=100)
     content = models.TextField()
