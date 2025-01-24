@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import (
-    ReviewListView,
     ReviewUpdateView,
     ReviewDeleteView,
     add_review,
