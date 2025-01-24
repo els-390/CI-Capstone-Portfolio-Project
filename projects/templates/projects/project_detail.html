@@ -93,11 +93,11 @@
                 {% for comment in comments %}
                 <div
                     class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold">
+                    <p class="font-weight-bold comment-author">
                         {{ comment.author }}
-                        <span class="font-weight-normal">
+                        <span class="font-weight-normal comment-date-time">
                             {{ comment.created_on }}
-                        </span> wrote:
+                        </span class = "comment-author"> wrote:
                     </p>
                     <div id="comment{{ comment.id }}">
                         {{ comment.body | linebreaks }}
@@ -106,8 +106,8 @@
                     <p class="approval">This comment is awaiting approval</p>
                     {% endif %}
                     {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
-                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-edit-comment" data-comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-delete-comment" data-comment_id="{{ comment.id }}">Delete</button>
                     {% endif %}
                 </div>
                 {% endfor %}
