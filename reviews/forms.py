@@ -1,6 +1,7 @@
 from django import forms
 from .models import Review
 
+
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
@@ -9,7 +10,3 @@ class ReviewForm(forms.ModelForm):
             'review': forms.Textarea(attrs={'rows': 4}),
             'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),
         }
-
-
-
-

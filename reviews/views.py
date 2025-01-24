@@ -1,4 +1,3 @@
-
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView
 from django.urls import reverse, reverse_lazy
@@ -10,20 +9,24 @@ from django.http import HttpResponseRedirect
 from .models import Review
 from .forms import ReviewForm
 
+
 class ReviewListView(ListView):
     model = Review
     template_name = 'review_list.html'
     context_object_name = 'reviews'
-    
+
+
 def review_list(request):
     if request.user.is_authenticated:
         # Display approved reviews and pending reviews by the logged-in user
-        reviews = Review.objects.filter(approved=True) | Review.objects.filter(author=request.user)
+        reviews = (
+            Review.objects.filter(approved=True)
+            | Review.objects.filter(author=request.user)
+        )
     else:
         reviews = Review.objects.filter(approved=True)
 
     return render(request, 'reviews/review_list.html', {'reviews': reviews})
-
 
 
 class ReviewCreateView(CreateView):
@@ -31,6 +34,7 @@ class ReviewCreateView(CreateView):
     fields = ['review_title', 'content', 'rating']
     template_name = 'add_review.html'
     success_url = reverse_lazy('review')
+
 
 @login_required
 def add_review(request):
@@ -46,6 +50,7 @@ def add_review(request):
 
     return render(request, 'reviews/add_review.html', {'form': form})
 
+
 class ReviewUpdateView(UpdateView):
     model = Review
     fields = ['review_title', 'content', 'rating']
@@ -58,13 +63,18 @@ class ReviewUpdateView(UpdateView):
         review = form.save(commit=False)
         review.approved = False
         review.save()
-        messages.add_message(self.request, messages.SUCCESS, 'Review updated and sent for approval!')
+        messages.add_message(
+            self.request,
+            messages.SUCCESS,
+            'Review updated and sent for approval!',
+        )
         return super().form_valid(form)
+
 
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
-    
+
     # Check if the logged-in user is the author of the review
     if review.author != request.user:
         messages.error(request, "You are not authorised to edit this review.")
@@ -77,7 +87,10 @@ def edit_review(request, review_id):
             # Reset approval status when the review is edited
             updated_review.approved = False
             updated_review.save()
-            messages.success(request, "Review updated! It will be re-evaluated for approval.")
+            messages.success(
+                request, "Review updated!"
+                "It will be re-evaluated for approval."
+            )
             return HttpResponseRedirect(reverse('review'))
         else:
             messages.error(request, "Error updating your review!")
@@ -85,9 +98,10 @@ def edit_review(request, review_id):
     else:
         review_form = ReviewForm(instance=review)
 
-    return render(request, 'reviews/edit_review.html', {'form': review_form, 'review': review})
-
-
+    return render(
+        request, 'reviews/edit_review.html',
+        {'form': review_form, 'review': review}
+    )
 
 
 class ReviewDeleteView(SuccessMessageMixin, DeleteView):
@@ -106,6 +120,9 @@ class ReviewDeleteView(SuccessMessageMixin, DeleteView):
         """
         review = self.get_object()
         if review.author != request.user:
-            messages.error(request, "You are not authorised to delete this review.")
+            messages.error(
+                request,
+                "You are not authorised to delete this review."
+            )
             return HttpResponseRedirect(reverse('review'))
         return super().dispatch(request, *args, **kwargs)
