@@ -64,6 +64,11 @@ class ReviewUpdateView(UpdateView):
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
+    
+    # Check if the logged-in user is the author of the review
+    if review.author != request.user:
+        messages.error(request, "You are not authorised to edit this review.")
+        return HttpResponseRedirect(reverse('review'))
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
@@ -86,11 +91,21 @@ def edit_review(request, review_id):
 
 
 class ReviewDeleteView(SuccessMessageMixin, DeleteView):
+    """
+    Class-based view to delete a review.
+    Only the author of the review is allowed to delete it.
+    """
     model = Review
     template_name = 'reviews/review_confirm_delete.html'
     success_url = reverse_lazy('review')  # Redirect to the review list page
     success_message = "Review deleted successfully!"
 
-@login_required
-def get_queryset(self):
-        return super().get_queryset().filter(author=self.request.user)
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Restrict access to delete functionality to the review's author.
+        """
+        review = self.get_object()
+        if review.author != request.user:
+            messages.error(request, "You are not authorised to delete this review.")
+            return HttpResponseRedirect(reverse('review'))
+        return super().dispatch(request, *args, **kwargs)
