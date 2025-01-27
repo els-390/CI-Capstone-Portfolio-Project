@@ -14,7 +14,7 @@
                 <div>
                     {% if not review.approved %}
                     {% if review.author == request.user %}
-                    <p class="approval faded">This review is awaiting approval</p>
+                    <p class="approval">This review is awaiting approval</p>
                     {% endif %}
                     {% endif %}
                     <h3>{{ review.review_title }}</h3>
