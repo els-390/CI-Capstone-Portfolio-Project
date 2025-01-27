@@ -337,7 +337,7 @@ All Javascript code was tested for errors with JSHint with each file pasted into
 
 The main issues identified were not things that I could easily fix and seemed to be related to the use of Bootstrap being considered unidentified because it is identified in another file.
 
-On manual testing the javascript elements appear to work as expected with the edit and delete and update comment buttons working as expected in the comment form. 
+On manual testing the Javascript elements appear to work as expected with the edit and delete and update comment buttons working as expected in the comment form and Bootstrap elements functioning as expected as part of the site. 
 
 <hr>
 
