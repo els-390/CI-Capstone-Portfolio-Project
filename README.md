@@ -253,6 +253,10 @@ The site has a facility for designated administrators to sign in, in order to ad
 
 ## Testing & Validation
 
+The site was tested and validation through a number of tools, commands and websites as well as through manual testing to ensure it performs to a high standard and functions as expected, that the code meets industry standards, the functionality and design is responsive.
+
+Tools used included: Lighthouse, HTML and CSS Validators, JSHint and Code Institute Python Linter.
+
 ### Lighthouse
 
 The site was tested using Lighthouse acheiving the following results:
@@ -421,7 +425,7 @@ While the full functionality of the website was tested further against the User 
 | As an **admin**, I can **delete comments from the admin panel** | ✅ | ✅
 | As an **admin**, I can **edit reviews from the admin panel to correct typos** | ✅ | ✅
 | As an **admin**, I can **delete reviews from the admin panel** | ✅ | ✅
-| As an **admin**, I can **receive contact requests witin the admin panel** | ✅ | ✅
+| As an **admin**, I can **receive contact requests within the admin panel** | ✅ | ✅
 | As an **unregistered user** I can **find out about this website before registering** |✅ | ✅
 | As an **unregistered user** I can **register** |✅ | ✅
 | As an **unregistered user** I **cannot access the dashboard** |✅ | ✅
