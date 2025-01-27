@@ -6,6 +6,22 @@
 
 The deployed site can be found [here](https://ci-full-stack-portfolio-app-7c4baf7a6f9d.herokuapp.com/).
 
+## Table of Contents
+
+- [ Purpose ](#purpose)
+- [ Planning ](#planning)
+- [ User Stories ](#user-stories)
+- [ Agile Methodologies and Project Board ](#agile-methodologies--project-board)
+- [ Flowchart and ERD ](#flowchart--erd)
+- [ Design Decisions and UX ](#design-decisions--ux)
+- [ Features](#features)
+- [ Testing and Validation](#testing--validation)
+- [ Bugs ](#bugs)
+- [ AI ](#ai)
+- [ Deployment ](#deployment)
+- [ Reflection on Development Process ](#reflection-on-development-process)
+- [ Credits ](#credits)
+
 ## Purpose
 
 This project aims to produce a portfolio web application for future potential employers to showcase multiple projects in one place.
@@ -235,7 +251,7 @@ The site has a facility for a user to sign out of their account.
 
 The site has a facility for designated administrators to sign in, in order to administrate the site via the standard Django admin interface.
 
-## Testing and Validation
+## Testing & Validation
 
 ### Lighthouse
 
