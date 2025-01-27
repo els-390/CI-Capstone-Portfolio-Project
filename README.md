@@ -239,41 +239,78 @@ The site has a facility for designated administrators to sign in, in order to ad
 
 ### Manual Testing
 
+No Automated testing was carried out, instead the site was manually tested for errors to help identify issues with formatting and how the site appears visually. 
+
 The site was tested on the following browsers for compatibility:
 
 ### Chrome
 
 | Test                                    | Expected Result | Actual Result |
 | --------------------------------------- | --------------- | ------------- |
-| Click Home menu                         | Success         | Success       |
-| Click About menu                        | Success         | Success       |
-| Click Reviews menu                      | Success         | Success       |
-| Click Login menu                        | Success         | Success       |
-| Click Logout                            | Success         | Success       |
-| Click individual project post           | Success         | Success       |
-| Create, edit, delete a personal comment | Success         | Success       |
-| Register new account                    | Success         | Success       |
-| Create contact request                  | Success         | Success       |
-| Access admin interface                  | Success         | Success       |
-| Responsivity                            | Success         | Success       |
-| Open new page from social media links   | Success         | Success       |
+| Click Home menu                         | ✅ | ✅ |
+| Click About menu                        | ✅ | ✅ |
+| Click Reviews menu                      | ✅ | ✅ |
+| Click Login menu                        | ✅ | ✅ |
+| Click Logout                            | ✅ | ✅ |
+| Click Individual Project Post           | ✅ | ✅ |
+| Create, Edit, Delete a personal comment | ✅ | ✅ |
+| Register New Account                    | ✅ | ✅ |
+| Create Contact Request                  | ✅ | ✅ |
+| Access Admin Interface                  | ✅ | ✅ |
+| Responsivity                            | ✅ | ✅ |
+| Open new page from social media links   | ✅ | ✅ |
 
 ### Safari
 
 | Test                                    | Expected Result | Actual Result |
 | --------------------------------------- | --------------- | ------------- |
-| Click Home menu                         | Success         | Success       |
-| Click About menu                        | Success         | Success       |
-| Click Reviews menu                      | Success         | Success       |
-| Click Login menu                        | Success         | Success       |
-| Click Logout                            | Success         | Success       |
-| Click individual project post           | Success         | Success       |
-| Create, edit, delete a personal comment | Success         | Success       |
-| Register new account                    | Success         | Success       |
-| Create contact request                  | Success         | Success       |
-| Access admin interface                  | Success         | Success       |
-| Responsivity                            | Success         | Success       |
-| Open new page from social media links   | Success         | Success       |
+| Click Home menu                         | ✅ | ✅ |
+| Click About menu                        | ✅ | ✅ |
+| Click Reviews menu                      | ✅ | ✅ |
+| Click Login menu                        | ✅ | ✅ |
+| Click Logout                            | ✅ | ✅ |
+| Click Individual Project Post           | ✅ | ✅ |
+| Create, Edit, Delete a personal comment | ✅ | ✅ |
+| Register New Account                    | ✅ | ✅ |
+| Create Contact Request                  | ✅ | ✅ |
+| Access Admin Interface                  | ✅ | ✅ |
+| Responsivity                            | ✅ | ✅ |
+| Open new page from social media links   | ✅ | ✅ |
+
+While the general functionality was tested further against the User Stories:
+
+
+| **User Stories** |  Tested |  Works As Intended |
+|  --- | --- | --- |
+| As an **admin**, I can **create projects from the admin panel** | ✅ | ✅
+| As an **admin**, I can **edit projects from the admin panel** | ✅ | ✅
+| As an **admin**, I can **delete projects from the admin panel** | ✅ | ✅
+| As an **admin**, I can **edit comments from the admin panel to correct typos** | ✅ | ✅
+| As an **admin**, I can **delete comments from the admin panel** | ✅ | ✅
+| As an **admin**, I can **edit reviews from the admin panel to correct typos** | ✅ | ✅
+| As an **admin**, I can **delete reviews from the admin panel** | ✅ | ✅
+| As an **unregistered user** I can **find out about this website before registering** |✅ | ✅
+| As an **unregistered user** I can **register** |✅ | ✅
+| As an **unregistered user** I **cannot access the dashboard** |✅ | ✅
+| As an **unregistered user** I **cannot create project posts** |✅ | ✅
+| As a **user**, I can **log in** |✅ | ✅
+| As a **user**, I can **log out** |✅ | ✅
+| As a **user**, I can **view projects** |✅ | ✅
+| As a **user**, I can **view comments** |✅ | ✅
+| As a **user**, I can **add comments** |✅ | ✅
+| As a **user**, I can **edit my own comments** |✅ | ✅
+| As a **user**, I can **delete my own comments** |✅ | ✅
+| As a **user**, I can **see if my comment is awaiting approval** |✅ | ✅
+| As a **user**, I can **view reviews** |✅ | ✅
+| As a **user**, I can **add reviews** |✅ | ✅
+| As a **user**, I can **edit my own reviews** |✅ | ✅
+| As a **user**, I can **delete my own reviews** |✅ | ✅
+| As a **user**, I can **see if my review is awaiting approval** |✅ | ✅
+| As a **user**, I **cannot edit another user's comment** |✅ | ✅
+| As a **user**, I **cannot delete another user's comment** |✅ | ✅
+| As a **user**, I **cannot edit another user's review** |✅ | ✅
+| As a **user**, I **cannot delete another user's review** |✅ | ✅
+| As a **user**, I can **view a responsive dashboard layout on my phone** |✅ | ✅
 
 ### Lighthouse
 

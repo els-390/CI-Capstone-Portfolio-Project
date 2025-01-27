@@ -18,7 +18,7 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
     DEBUG = True
-else: 
+else:
     DEBUG = False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['8000-els390-cicapstoneportfo-lluev0m8820.ws.codeinstitute-ide.net','.herokuapp.com']
+ALLOWED_HOSTS = ['8000-els390-cicapstoneportfo-lluev0m8820.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 # Application definition
 
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'contact',
     'blog',
     'projects',
-    'reviews', 
+    'reviews',
 ]
 
 SITE_ID = 1
@@ -90,7 +90,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,  
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
